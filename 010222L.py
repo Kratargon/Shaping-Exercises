@@ -1,5 +1,3 @@
-# 1/2/2022
-
 class Character:
     def __init__(self, stats, items, abilities):
         # Expected: Dictionary (Stat -> Value)
