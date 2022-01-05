@@ -8,14 +8,16 @@ class Board:
         # Expecting a list of Ship objects
         self.ships = ships
         self.map = []
-        for i in range(self.yLength):
-            row = []
-            for j in range(self.xLength):
+        # Column-array format so we index by [x][y]
+        for i in range(self.xLength):
+            column = []
+            for j in range(self.yLength):
                 # 0 denotes an empty location on the board
                 # 1 denotes a location containing a ship
                 # 2 denotes a miss
                 # 3 denotes a hit
-                row.append(0)
+                column.append(0)
+            self.map.append(column)
 
     def placeShip(self, ship, start, direction):
         # Expecting ship to be an element of self.ships
