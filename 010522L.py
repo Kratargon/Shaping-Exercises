@@ -43,3 +43,20 @@ class Ship:
         self.direction = 1
         # The location of the ship's origin -> inits to under the board
         self.location = [0, -1]
+
+    def getLocations(self):
+        locations = [self.location]
+        for i in range(size):
+            # 0 -> 0, 1
+            # 1 -> 1, 0
+            # 2 -> 0, -1
+            # 3 -> -1, 0
+            # Imaginary magic saves us the trouble of 4 if statements
+            nextLocation = [locations[-1] + (round((((-1) ** 0.5) ** (self.direction - 1)).real)), locations[-1] + (round((((-1) ** 0.5) ** (self.direction)).real))]
+            locations.append(nextLocation)
+        return locations
+
+    def isHere(self, location):
+        if location in self.getLocations():
+            return True
+        return False
