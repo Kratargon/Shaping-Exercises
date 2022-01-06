@@ -35,6 +35,9 @@ class Board:
     def printBoard(self, skin = "default"):
         return ""
 
+    def getShip(self, index):
+        return self.ships[index]
+
 class Ship:
     def __init__(self, size):
         # The length of the ship
