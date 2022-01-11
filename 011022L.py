@@ -89,3 +89,15 @@ class Ship:
         if self.damage == self.size:
             return True
         return False
+
+class Game:
+    def __init__(self, playerCount = 2, size = 8):
+        # Default ship size list
+        ships = [2, 3, 3, 4, 5]
+        # One board per player
+        boardArray = []
+        for i in range(playerCount):
+            myShips = []
+            for i in ships:
+                myShips.append(Ship(i))
+            boardArray.append(Board(size, myShips))
